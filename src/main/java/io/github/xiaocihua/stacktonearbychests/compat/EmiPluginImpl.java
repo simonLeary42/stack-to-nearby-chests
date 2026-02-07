@@ -7,8 +7,8 @@ import io.github.cottonmc.cotton.gui.widget.data.Vec2i;
 import io.github.xiaocihua.stacktonearbychests.ModOptions;
 import io.github.xiaocihua.stacktonearbychests.StackToNearbyChests;
 import io.github.xiaocihua.stacktonearbychests.mixin.HandledScreenAccessor;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 
 public class EmiPluginImpl implements EmiPlugin {
     @Override
@@ -16,7 +16,7 @@ public class EmiPluginImpl implements EmiPlugin {
         registry.addGenericExclusionArea((screen, consumer) -> {
             ModOptions.Appearance appearanceOption = ModOptions.get().appearance;
 
-            if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
+            if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen) {
                 int parentX = ((HandledScreenAccessor) screen).getX();
                 int parentY = ((HandledScreenAccessor) screen).getY();
 

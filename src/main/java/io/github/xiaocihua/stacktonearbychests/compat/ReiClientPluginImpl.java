@@ -7,10 +7,9 @@ import io.github.xiaocihua.stacktonearbychests.mixin.HandledScreenAccessor;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.screen.ExclusionZones;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class ReiClientPluginImpl implements REIClientPlugin {
             List<Rectangle> zones = new ArrayList<>();
             ModOptions.Appearance appearanceOption = ModOptions.get().appearance;
 
-            if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
+            if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen) {
                 int parentX = ((HandledScreenAccessor) screen).getX();
                 int parentY = ((HandledScreenAccessor) screen).getY();
 

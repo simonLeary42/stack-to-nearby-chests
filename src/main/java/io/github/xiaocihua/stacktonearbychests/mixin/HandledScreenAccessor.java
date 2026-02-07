@@ -1,38 +1,38 @@
 package io.github.xiaocihua.stacktonearbychests.mixin;
 
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.screen.slot.Slot;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.world.inventory.Slot;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(HandledScreen.class)
+@Mixin(AbstractContainerScreen.class)
 public interface HandledScreenAccessor {
 
-    @Accessor("x")
+    @Accessor("leftPos")
     int getX();
 
-    @Accessor("x")
+    @Accessor("leftPos")
     void setX(int x);
 
-    @Accessor("y")
+    @Accessor("topPos")
     int getY();
 
-    @Accessor("y")
+    @Accessor("topPos")
     void setY(int y);
 
-    @Accessor("focusedSlot")
+    @Accessor("hoveredSlot")
     @Nullable
     Slot getFocusedSlot();
 
     @Accessor
-    int getBackgroundWidth();
+    int getImageWidth();
 
     @Accessor
-    int getBackgroundHeight();
+    int getImageHeight();
 
     @Invoker
     @Nullable
-    Slot invokeGetSlotAt(double x, double y);
+    Slot invokeGetHoveredSlot(double x, double y);
 }
